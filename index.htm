@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GeoJSON Viewer</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+	body {
+			margin:0; padding:0; }
+  			#map { position:absolute; top:0; bottom:0; width:100%;
+	}
+	.leaflet-popup-content {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+<body>
+	<div id="map"></div>
+
+
+
+
+	<!-- Load Leaflet from CDN-->
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<!-- Load Esri Leaflet from CDN -->
+	<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		function getUrlParameter(sParam)
+		{
+		    var sPageURL = window.location.search.substring(1);
+		    console.log("sPageURL", sPageURL);
+		    var location = sPageURL.indexOf("=");
+		    return sPageURL.substring(location+1);
+		}   
+
+		var map = L.map('map').setView([51.505, -0.09], 2);
+
+		L.esri.basemapLayer('Gray').addTo(map);
+
+		// console.log("url", getUrlParameter('url'));
+		$.ajax({
+		  url: getUrlParameter('url'),
+		  // data: data,
+		  success: function(res) {
+		  	var lyr = L.geoJson(res, {
+		  		onEachFeature: function (feature, layer) {
+	  				layer.bindPopup(JSON.stringify(feature.properties));
+			    }
+		  	}).addTo(map);
+		  	map.fitBounds(lyr.getBounds());
+		  }.bind(this),
+		  dataType: 'json'
+		});
+
+	</script>
+</body>
+</html>
