@@ -1,61 +1,53 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>GeoJSON Viewer</title>
+	<title>GeoJSON Viewer - View GeoJSON from URL</title>
 	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<style>
-	body {
-			margin:0; padding:0; }
-  			#map { position:absolute; top:0; bottom:0; width:100%;
-	}
-	.leaflet-popup-content {
-		overflow-wrap: break-word;
-	}
-	</style>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-	<div id="map"></div>
-
-
-
+	<div id="map">
+		<div class="buttonWrapper">
+			<a href="./" alt="Home">Try another!</a>
+		</div>
+		<div class="spinner">
+			<div class="rect1"></div>
+			<div class="rect2"></div>
+			<div class="rect3"></div>
+			<div class="rect4"></div>
+			<div class="rect5"></div>
+		</div>
+	</div>
+	<div id="entryFormWrapper">
+		<h1>GeoJSON Viewer</h1>
+		<form id="entryForm">
+			<input type="text" id="urlInput" placeholder="http://services1.arcgis.com/g2TonOxuRkIqSOFx/arcgis/rest/services/US_National_Parks/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=4326&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson&token=" /><br />
+			<button id="lookupUrlButton">Map that GeoJSON!</button>
+		</form>
+	</div>
 
 	<!-- Load Leaflet from CDN-->
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<!-- Load Esri Leaflet from CDN -->
 	<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script>
-		function getUrlParameter(sParam)
-		{
-		    var sPageURL = window.location.search.substring(1);
-		    console.log("sPageURL", sPageURL);
-		    var location = sPageURL.indexOf("=");
-		    return sPageURL.substring(location+1);
-		}   
-
-		var map = L.map('map').setView([51.505, -0.09], 2);
-
-		L.esri.basemapLayer('Gray').addTo(map);
-
-		// console.log("url", getUrlParameter('url'));
-		$.ajax({
-		  url: getUrlParameter('url'),
-		  // data: data,
-		  success: function(res) {
-		  	var lyr = L.geoJson(res, {
-		  		onEachFeature: function (feature, layer) {
-	  				layer.bindPopup(JSON.stringify(feature.properties));
-			    }
-		  	}).addTo(map);
-		  	map.fitBounds(lyr.getBounds());
-		  }.bind(this),
-		  dataType: 'json'
-		});
-
+	<script src="main.js"></script>
+	<a href="https://github.com/gavinr/geojson-viewer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+	<!-- Start of StatCounter Code for Default Guide -->
+	<script type="text/javascript">
+	var sc_project=10637164; 
+	var sc_invisible=1; 
+	var sc_security="1d0676f0"; 
+	var scJsHost = (("https:" == document.location.protocol) ?
+	"https://secure." : "http://www.");
+	document.write("<sc"+"ript type='text/javascript' src='" +
+	scJsHost+
+	"statcounter.com/counter/counter.js'></"+"script>");
 	</script>
+	<!-- End of StatCounter Code for Default Guide -->
 </body>
 </html>
