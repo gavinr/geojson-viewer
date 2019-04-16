@@ -8,46 +8,54 @@ function getUrlParameter() {
 	}
 }
 
+require([
+	"esri/Map",
+	"esri/views/MapView",
+	"esri/layers/GeoJSONLayer"
+], function(Map, MapView, GeoJSONLayer) {
 
+	var url = getUrlParameter('url');
+	if (url !== false) {
+		$("#entryFormWrapper").remove();
 
-var url = getUrlParameter('url');
-if (url !== false) {
-	$("#entryFormWrapper").remove();
+		var geojsonLayer = new GeoJSONLayer({
+			url: url
+		});
 
-	var map = L.map('map').setView([51.505, -0.09], 2);
+		geojsonLayer.watch('loadStatus', function(status) {
+			if(status === 'failed') {
+				alert("Error. Please check the URL and click 'Try Another'.");
+			}
+		});
 
-	L.esri.basemapLayer('Gray').addTo(map);
-	$.ajax({
-		url: url,
-		success: function(res) {
-			var lyr = L.geoJson(res, {
-				onEachFeature: function(feature, layer) {
-					layer.bindPopup(JSON.stringify(feature.properties));
-				}
-			}).addTo(map);
-			map.fitBounds(lyr.getBounds());
-			$(".spinner").remove();
-		}.bind(this),
-		dataType: 'json',
+		
+		geojsonLayer.when(function(){
+			view.extent = geojsonLayer.fullExtent;
+			geojsonLayer.popupTemplate = geojsonLayer.createPopupTemplate();
+		});
 
-		error: function(err) {
-			$(".spinner").remove();
-			console.error('Error:', err);
-			alert("Error. Please check the URL and click 'Try Another'.");
-		},
-		timeout: function(err) {
-			$(".spinner").remove();
-			console.error('timeout:', err);
-			alert("Timeout. Try again later?");
-		}
-	});
-} else {
-	$("#map").remove();
+		var map = new Map({
+			basemap: "gray",
+			layers: [geojsonLayer]
+		});
+	
+		var view = new MapView({
+			container: "viewDiv",
+			map: map,
+			center: [0,0],
+			zoom: 3
+		});
 
-	$("#lookupUrlButton").click(function(event) {
-		event.preventDefault();
-		var newUrl = window.location.href + '?url=' + $("#urlInput").val();
-		console.log('newUrl', newUrl);
-		window.location.replace(newUrl);
-	});
-}
+		
+	} else {
+		$("#map").remove();
+
+		$("#lookupUrlButton").click(function(event) {
+			event.preventDefault();
+			var newUrl = window.location.href + '?url=' + $("#urlInput").val();
+			window.location.replace(newUrl);
+		});
+	}
+
+});
+

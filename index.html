@@ -6,20 +6,15 @@
 	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
 	<link rel="stylesheet" href="styles/main.css" />
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.11/"></script>
 </head>
 <body>
 	<div id="map">
 		<div class="buttonWrapper">
 			<a href="./" alt="Home">Try another!</a>
-		</div>
-		<div class="spinner">
-			<div class="rect1"></div>
-			<div class="rect2"></div>
-			<div class="rect3"></div>
-			<div class="rect4"></div>
-			<div class="rect5"></div>
 		</div>
 	</div>
 	<div id="entryFormWrapper">
@@ -30,12 +25,11 @@
 		</form>
 	</div>
 
-	<!-- Load Leaflet from CDN-->
-	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="	crossorigin=""></script>
-	<!-- Load Esri Leaflet from CDN -->
-	<script src="https://unpkg.com/esri-leaflet@2.1.1/dist/esri-leaflet.js"	integrity="sha512-ECQqaYZke9cSdqlFG08zSkudgrdF6I1d8ViSa7I3VIszJyVqw4ng1G8sehEXlumdMnFYfzY0tMgdQa4WCs9IUw=="	crossorigin=""></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="main.js"></script>
+
+
+	<div id="viewDiv"></div>
 	<a href="https://github.com/gavinr/geojson-viewer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 	<!-- Start of StatCounter Code for Default Guide -->
 	<script type="text/javascript">
@@ -49,5 +43,7 @@
 	"statcounter.com/counter/counter.js'></"+"script>");
 	</script>
 	<!-- End of StatCounter Code for Default Guide -->
+
+
 </body>
 </html>

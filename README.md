@@ -16,5 +16,4 @@ Examples:
 
 Technologies
 ============
-  * https://github.com/Leaflet/Leaflet
-  * https://github.com/Esri/esri-leaflet
+  * [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) - [GeoJSONLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html#)
