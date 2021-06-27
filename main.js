@@ -48,11 +48,12 @@ require([
     const element = document.querySelectorAll("#map")[0];
     element.parentNode.removeChild(element);
 
+    const urlInput = document.querySelectorAll("#urlInput")[0];
     document
       .querySelectorAll("#lookupUrlButton")[0]
       .addEventListener("click", function (event) {
         event.preventDefault();
-        var newUrl = window.location.href + "?url=" + $("#urlInput").val();
+        var newUrl = window.location.href + "?url=" + urlInput.value;
         window.location.replace(newUrl);
       });
   }
