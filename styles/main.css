@@ -1,4 +1,6 @@
-html, body, #viewDiv {
+html,
+body,
+#viewDiv {
   padding: 0;
   margin: 0;
   height: 100%;
@@ -6,26 +8,25 @@ html, body, #viewDiv {
 }
 
 #entryFormWrapper {
-	margin-top: 10em;
-	width: 100%;
-	text-align: center;
+  margin-top: 10em;
+  width: 100%;
+  text-align: center;
 }
 #entryForm input,
 #entryForm button {
-	font-size: 24px;
+  font-size: 24px;
 }
 #entryForm input {
-	width: 50%;
+  width: 50%;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 #map .buttonWrapper {
-	z-index: 100;
-    top: 10px;
-    left: 56px;
-    position: absolute;
+  z-index: 100;
+  top: 15px;
+  left: 56px;
+  position: absolute;
 }
-
-
-
 
 /* SPINNER: http://tobiasahlin.com/spinkit/ */
 .spinner {
@@ -35,8 +36,8 @@ html, body, #viewDiv {
   text-align: center;
   font-size: 10px;
   z-index: 100;
-	position: absolute;
-    left: 49%;
+  position: absolute;
+  left: 49%;
 }
 
 .spinner > div {
@@ -44,7 +45,7 @@ html, body, #viewDiv {
   height: 100%;
   width: 6px;
   display: inline-block;
-  
+
   -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
@@ -55,8 +56,8 @@ html, body, #viewDiv {
 }
 
 .spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
 }
 
 .spinner .rect4 {
@@ -70,16 +71,25 @@ html, body, #viewDiv {
 }
 
 @-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
-  20% { -webkit-transform: scaleY(1.0) }
+  0%,
+  40%,
+  100% {
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    -webkit-transform: scaleY(1);
+  }
 }
 
 @keyframes sk-stretchdelay {
-  0%, 40%, 100% { 
+  0%,
+  40%,
+  100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4);
-  }  20% { 
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
+  }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
   }
 }
