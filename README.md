@@ -1,10 +1,9 @@
-GeoJSON Viewer
-==============
+# GeoJSON Viewer
 
 View GeoJSON based on a URL param
 
-Usage
-=====
+## Usage
+
 Pass a GeoJSON url to the parameter in the form https://gavinr.github.io/geojson-viewer/?url=________ 
 
 Examples:
@@ -14,6 +13,6 @@ Examples:
 * [Demo 3 - Washington DC Bike Lanes](https://gavinr.github.io/geojson-viewer/?url=https://cdn.jsdelivr.net/gh/Esri/geojson-layer-js@master/data/dc-bike-lanes.json)
 * [Demo 4 - Allegheny County Blazed Trails Locations](https://gavinr.github.io/geojson-viewer/?url=https://opendata.arcgis.com/datasets/d182439a9a6344fca2c5bf717b9cace8_0.geojson)
 
-Technologies
-============
-  * [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) - [GeoJSONLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html#)
+## Technologies
+
+* [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) - [GeoJSONLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html#)
