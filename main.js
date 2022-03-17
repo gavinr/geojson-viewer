@@ -34,7 +34,7 @@ require([
     });
 
     var map = new Map({
-      basemap: "gray",
+      basemap: "gray-vector",
       layers: [geojsonLayer],
     });
 
