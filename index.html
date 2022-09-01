@@ -1,49 +1,68 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-	<title>GeoJSON Viewer - View GeoJSON from URL</title>
-	<meta charset="utf-8" />
+  <head>
+    <title>GeoJSON Viewer - View GeoJSON from URL</title>
+    <meta charset="utf-8" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="styles/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
 
-	<link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css">
+    <link
+      rel="stylesheet"
+      href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css"
+    />
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.23/"></script>
-</head>
-<body>
-	<div id="map">
-		<div class="buttonWrapper">
-			<a href="./" alt="Home" class="btn">Try another!</a>
-		</div>
-	</div>
-	<div id="entryFormWrapper">
-		<h1>GeoJSON Viewer</h1>
-		<form id="entryForm">
-			<input type="text" id="urlInput" placeholder="http://services1.arcgis.com/g2TonOxuRkIqSOFx/arcgis/rest/services/US_National_Parks/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=4326&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson&token=" /><br />
-			<button id="lookupUrlButton">Map that GeoJSON!</button>
-		</form>
-	</div>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.24/esri/css/main.css"
+    />
+    <script src="https://js.arcgis.com/4.24/"></script>
+  </head>
+  <body>
+    <div id="map">
+      <div class="buttonWrapper">
+        <a href="./" alt="Home" class="btn">Try another!</a>
+      </div>
+    </div>
+    <div id="entryFormWrapper">
+      <h1>GeoJSON Viewer</h1>
+      <form id="entryForm">
+        <input
+          type="text"
+          id="urlInput"
+          placeholder="http://services1.arcgis.com/g2TonOxuRkIqSOFx/arcgis/rest/services/US_National_Parks/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=4326&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson&token="
+        /><br />
+        <button id="lookupUrlButton">Map that GeoJSON!</button>
+      </form>
+    </div>
 
-	<script src="main.js"></script>
+    <script src="main.js"></script>
 
-	<div id="viewDiv"></div>
-	<a href="https://github.com/gavinr/geojson-viewer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-	<!-- Start of StatCounter Code for Default Guide -->
-	<script type="text/javascript">
-	var sc_project=10637164; 
-	var sc_invisible=1; 
-	var sc_security="1d0676f0"; 
-	var scJsHost = (("https:" == document.location.protocol) ?
-	"https://secure." : "http://www.");
-	document.write("<sc"+"ript type='text/javascript' src='" +
-	scJsHost+
-	"statcounter.com/counter/counter.js'></"+"script>");
-	</script>
-	<!-- End of StatCounter Code for Default Guide -->
-
-
-</body>
+    <div id="viewDiv"></div>
+    <a href="https://github.com/gavinr/geojson-viewer" class="githubFlag"
+      ><img
+        style="position: absolute; top: 0; right: 0; border: 0"
+        src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+        alt="Fork me on GitHub"
+        data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    /></a>
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+      var sc_project = 10637164;
+      var sc_invisible = 1;
+      var sc_security = "1d0676f0";
+      var scJsHost =
+        "https:" == document.location.protocol
+          ? "https://secure."
+          : "http://www.";
+      document.write(
+        "<sc" +
+          "ript type='text/javascript' src='" +
+          scJsHost +
+          "statcounter.com/counter/counter.js'></" +
+          "script>"
+      );
+    </script>
+    <!-- End of StatCounter Code for Default Guide -->
+  </body>
 </html>

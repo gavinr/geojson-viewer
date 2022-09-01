@@ -12,15 +12,18 @@ body,
   width: 100%;
   text-align: center;
 }
+
 #entryForm input,
 #entryForm button {
   font-size: 24px;
 }
+
 #entryForm input {
   width: 50%;
   display: inline-block;
   margin-bottom: 10px;
 }
+
 #map .buttonWrapper {
   z-index: 100;
   top: 15px;
@@ -40,7 +43,7 @@ body,
   left: 49%;
 }
 
-.spinner > div {
+.spinner>div {
   background-color: #333;
   height: 100%;
   width: 6px;
@@ -71,23 +74,27 @@ body,
 }
 
 @-webkit-keyframes sk-stretchdelay {
+
   0%,
   40%,
   100% {
     -webkit-transform: scaleY(0.4);
   }
+
   20% {
     -webkit-transform: scaleY(1);
   }
 }
 
 @keyframes sk-stretchdelay {
+
   0%,
   40%,
   100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4);
   }
+
   20% {
     transform: scaleY(1);
     -webkit-transform: scaleY(1);
