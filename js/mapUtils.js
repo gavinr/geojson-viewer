@@ -5,11 +5,15 @@ import MapView from "https://js.arcgis.com/4.24/@arcgis/core/views/MapView.js";
 import GeoJSONLayer from "https://js.arcgis.com/4.24/@arcgis/core/layers/GeoJSONLayer.js";
 import Swipe from "https://js.arcgis.com/4.24/@arcgis/core/widgets/Swipe.js";
 
-export const finishLoadingMap = (geojsonLayer, swipeLayerUrl) => {
+export const finishLoadingMap = (geojsonLayer, geojsonLayerColor, swipeLayerUrl, swipeLayerColor) => {
   geojsonLayer.when(function () {
     view.extent = geojsonLayer.fullExtent;
     geojsonLayer.popupTemplate = geojsonLayer.createPopupTemplate();
   });
+
+  if (geojsonLayerColor) {
+    geojsonLayer.renderer.symbol.color = geojsonLayerColor;
+  }
 
   var view = new MapView({
     container: "viewDiv",
@@ -22,18 +26,21 @@ export const finishLoadingMap = (geojsonLayer, swipeLayerUrl) => {
   });
 
   if (swipeLayerUrl) {
-    const swipeLayer = new GeoJSONLayer({
-      url: swipeLayerUrl,
+    tryToMakeLayer(swipeLayerUrl).then((swipeLayer) => {
+      if (swipeLayerColor) {
+        swipeLayer.renderer.symbol.color = swipeLayerColor;
+      }
+
+      view.map.add(swipeLayer);
+      let swipe = new Swipe({
+        view: view,
+        leadingLayers: [geojsonLayer],
+        trailingLayers: [geojsonLayer, swipeLayer],
+        // direction: "vertical", // swipe widget will move from top to bottom of view
+        position: 50, // position set to middle of the view (50%)
+      });
+      view.ui.add(swipe);
     });
-    view.map.add(swipeLayer);
-    let swipe = new Swipe({
-      view: view,
-      leadingLayers: [geojsonLayer],
-      trailingLayers: [geojsonLayer, swipeLayer],
-      // direction: "vertical", // swipe widget will move from top to bottom of view
-      position: 50, // position set to middle of the view (50%)
-    });
-    view.ui.add(swipe);
   }
 };
 

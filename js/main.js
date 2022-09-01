@@ -2,8 +2,10 @@ import { finishLoadingMap, tryToMakeLayer } from "./mapUtils.js";
 import { getUrlParameter, getUrlParameterOld } from "./urlUtils.js";
 
 const urlParam = getUrlParameter("url");
+const colorParam = getUrlParameter("color");
 const silentParam = getUrlParameter("silent");
 const swipeLayerParam = getUrlParameter("swipeLayer");
+const swipeLayerColorParam = getUrlParameter("swipeLayerColor");
 
 if (urlParam !== false && urlParam !== null) {
   const element = document.querySelectorAll("#entryFormWrapper")[0];
@@ -11,7 +13,7 @@ if (urlParam !== false && urlParam !== null) {
 
   tryToMakeLayer(urlParam).then(
     (layer) => {
-      finishLoadingMap(layer, swipeLayerParam);
+      finishLoadingMap(layer, colorParam, swipeLayerParam, swipeLayerColorParam);
     },
     () => {
       // error - could not load
@@ -21,7 +23,7 @@ if (urlParam !== false && urlParam !== null) {
           console.warn(
             "PLEASE URL ENCODE YOUR URLS - THIS URL FORMAT WILL STOP WORKING SOON - https://meyerweb.com/eric/tools/dencoder/"
           );
-          finishLoadingMap(layer, swipeLayerParam);
+          finishLoadingMap(layer, colorParam, swipeLayerParam, swipeLayerColorParam);
         },
         () => {
           // error after try 2
