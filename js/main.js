@@ -1,15 +1,15 @@
 import { finishLoadingMap, tryToMakeLayer } from "./mapUtils.js";
 import { getUrlParameter, getUrlParameterOld } from "./urlUtils.js";
 
-const url = getUrlParameter("url");
-const silent = getUrlParameter("silent");
+const urlParam = getUrlParameter("url");
+const silentParam = getUrlParameter("silent");
 const swipeLayerParam = getUrlParameter("swipeLayer");
 
-if (url !== false && url !== null) {
+if (urlParam !== false && urlParam !== null) {
   const element = document.querySelectorAll("#entryFormWrapper")[0];
   element.parentNode.removeChild(element);
 
-  tryToMakeLayer(url).then(
+  tryToMakeLayer(urlParam).then(
     (layer) => {
       finishLoadingMap(layer, swipeLayerParam);
     },
@@ -42,7 +42,7 @@ if (url !== false && url !== null) {
   });
 }
 
-if (silent === "true") {
+if (silentParam === "true") {
   const idsToHide = ["githubFlagLink", "buttonWrapper"];
   idsToHide.forEach((id) => {
     document.getElementById(id).classList.add("hidden");
