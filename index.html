@@ -12,10 +12,7 @@
       href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://js.arcgis.com/4.24/esri/css/main.css"
-    />
+    <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/css/main.css" />
     <script src="https://js.arcgis.com/4.24/"></script>
   </head>
   <body>
@@ -36,7 +33,7 @@
       </form>
     </div>
 
-    <script src="main.js"></script>
+    <script src="js/main.js" type="module"></script>
 
     <div id="viewDiv"></div>
     <a href="https://github.com/gavinr/geojson-viewer" id="githubFlagLink"
@@ -51,16 +48,9 @@
       var sc_project = 10637164;
       var sc_invisible = 1;
       var sc_security = "1d0676f0";
-      var scJsHost =
-        "https:" == document.location.protocol
-          ? "https://secure."
-          : "http://www.";
+      var scJsHost = "https:" == document.location.protocol ? "https://secure." : "http://www.";
       document.write(
-        "<sc" +
-          "ript type='text/javascript' src='" +
-          scJsHost +
-          "statcounter.com/counter/counter.js'></" +
-          "script>"
+        "<sc" + "ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></" + "script>"
       );
     </script>
     <!-- End of StatCounter Code for Default Guide -->
