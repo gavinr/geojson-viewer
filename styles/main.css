@@ -31,6 +31,10 @@ body,
   position: absolute;
 }
 
+.hidden {
+  display: none;
+}
+
 /* SPINNER: http://tobiasahlin.com/spinkit/ */
 .spinner {
   margin: 100px auto;
