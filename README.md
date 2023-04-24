@@ -16,13 +16,10 @@ Examples:
 
 Some additional URL parameters you can use:
 
-* `silent=true` - do not show the buttons or GitHub banner. [Example](https://gavinr.github.io/geojson-viewer/?silent=true&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FEsri%2Fgeojson-layer-js%40master%2Fdata%2Fdc-bike-lanes.json)
 * `color=<color>` - set the layer color. [Example](https://gavinr.github.io/geojson-viewer/?color=red&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FEsri%2Fgeojson-layer-js%40master%2Fdata%2Fdc-bike-lanes.json)
 * `swipeLayer=<url>` - second layer to show as a swipe. [Example](https://gavinr.github.io/geojson-viewer/?url=https%3A%2F%2Fservices.arcgis.com%2FP3ePLMYs2RVChkJx%2Farcgis%2Frest%2Fservices%2FUSA_States_Generalized%2FFeatureServer%2F0%2Fquery%3Fwhere%3D1%253D1%26outFields%3D*%26f%3Dgeojson&swipeLayer=https%3A%2F%2Fservices.arcgis.com%2FP3ePLMYs2RVChkJx%2Farcgis%2Frest%2Fservices%2FUSA_Counties_Generalized%2FFeatureServer%2F0%2Fquery%3Fwhere%3DPOP_SQMI%3E50%26outFields%3D*%26f%3Dgeojson)
 * `swipeLayerColor=<color>` - set the swipe layer color. [Example](http://localhost:3000/?swipeLayerColor=green&url=https%3A%2F%2Fservices.arcgis.com%2FP3ePLMYs2RVChkJx%2Farcgis%2Frest%2Fservices%2FUSA_States_Generalized%2FFeatureServer%2F0%2Fquery%3Fwhere%3D1%253D1%26outFields%3D*%26f%3Dgeojson&swipeLayer=https%3A%2F%2Fservices.arcgis.com%2FP3ePLMYs2RVChkJx%2Farcgis%2Frest%2Fservices%2FUSA_Counties_Generalized%2FFeatureServer%2F0%2Fquery%3Fwhere%3DPOP_SQMI%3E50%26outFields%3D*%26f%3Dgeojson)
 
-
 ## Technologies
 
 * [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) - [GeoJSONLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html#)
-

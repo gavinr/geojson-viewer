@@ -43,10 +43,3 @@ if (urlParam !== false && urlParam !== null) {
     window.location.replace(newUrl);
   });
 }
-
-if (silentParam === "true") {
-  const idsToHide = ["githubFlagLink", "buttonWrapper"];
-  idsToHide.forEach((id) => {
-    document.getElementById(id).classList.add("hidden");
-  });
-}
